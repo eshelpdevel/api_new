@@ -18,7 +18,7 @@ $idName = "UPDATE_FROM_CRM";
 
 $agrmntid = filter_input(INPUT_GET, 'agrmntid', FILTER_SANITIZE_STRING);
 if (!$agrmntid) {
-$agrmntid = "";
+        $agrmntid = "";
 }
 
 $distributedDate = filter_input(INPUT_GET, 'distributedDate', FILTER_SANITIZE_STRING);
