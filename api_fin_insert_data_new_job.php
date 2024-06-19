@@ -70,10 +70,9 @@ while (($reca = mysqli_fetch_assoc($resa)) === TRUE) {
 
         $sqlcs = "SELECT a.agent_name FROM cc_agent_profile a WHERE a.id='$assign_to' ";
         $rescs = mysqli_query($condb, $sqlcs);
-        if ($reccs = mysqli_fetch_assoc($rescs)) {
-                $agent_name         = $reccs['agent_name'];
+        if ($reccs = mysqli_fetch_object($rescs)) {
+            $agent_name = $reccs->agent_name;
         }
-
         //     $ch = curl_init($url);
 
         $monthly_instalment = str_replace(".00", "", $monthly_instalment);
