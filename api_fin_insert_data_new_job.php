@@ -61,7 +61,7 @@ while ($reca = mysqli_fetch_array($resa)) {
                 $taskId = $task_id;
         }
         $url = $url_api_fin . '/api/Pengajuan/InsertUpdateFromCRMRO';
-        if ($flag_wise == 1) {
+        if ($flag_wise === 1) {
                 $url = $url_api_fin . '/api/Pengajuan/UpdateNonWiseCRM';
         }
 
@@ -78,12 +78,12 @@ while ($reca = mysqli_fetch_array($resa)) {
         $otr_price    = str_replace(".00", "", $otr_price);
         $emp_position = "TELESALES";
 
-        $path = '../../public/konfirm/cust_photo/' . $cust_photo;
+        $path = '../../public/konfirm/cust_photo/'.$cust_photo;
         $type = end(explode('.', $path));
         $data = file_get_contents($path);
         $cust_photo = base64_encode($data);
 
-        $path = '../../public/konfirm/id_photo/' . $id_photo;
+        $path = '../../public/konfirm/id_photo/'.$id_photo;
         $type = end(explode('.', $path));
         $data = file_get_contents($path);
         $id_photo = base64_encode($data);
@@ -91,10 +91,10 @@ while ($reca = mysqli_fetch_array($resa)) {
         $monthly_income    = str_replace(".", "", $monthly_income);
 
         $asset_desc = $assets_desc;
-        if ($no_mesin == "") {
+        if ($no_mesin === "") {
                 $no_mesin = $engine_no;
         }
-        if ($no_rangka == "") {
+        if ($no_rangka === "") {
                 $no_rangka = $chasis_no;
         }
 
@@ -250,7 +250,7 @@ while ($reca = mysqli_fetch_array($resa)) {
                 $data2 .= ',"IndustryTypeName":"' . $industry_type_name . '"';
         }
         if ($monthly_income !== '') {
-                if ($monthly_income == '0') {
+                if ($monthly_income === '0') {
                         $monthly_income = null;
                 }
                 $data2 .= ',"MonthlyIncome":"' . $monthly_income . '"';
@@ -267,7 +267,7 @@ while ($reca = mysqli_fetch_array($resa)) {
         if ($customer_rating !== '') {
                 $data2 .= ',"CustRating":"' . $customer_rating . '"';
         }
-        if ($lob == "MGJMTRKON" || $lob == "MGJMBLSYR" || $lob == "MGJMTRSYR" || $lob == "MGJMBLKON" || $lob == "FASDANMBL" || $lob == "SLBINV" || $lob == "FASDANMTR" || $lob == "SLBMBL") {
+        if ($lob === "MGJMTRKON" || $lob === "MGJMBLSYR" || $lob === "MGJMTRSYR" || $lob === "MGJMBLKON" || $lob === "FASDANMBL" || $lob === "SLBINV" || $lob === "FASDANMTR" || $lob === "SLBMBL") {
                 $suppl_name = "SUPPLIER";
                 $suppl_code = "DUMMY";
         }
@@ -507,7 +507,7 @@ while ($reca = mysqli_fetch_array($resa)) {
                 $data2 .= ',"IsPreApproval":"' . $is_pre_approval . '"';
         }
 
-        if ($flag_wise == 1) {
+        if ($flag_wise === 1) {
                 $data = '{"TaskId":"' . $task_id . '","StartDt":"' . $dateexe . '"' . $data2 . '}';
         } else {
                 $data = '{"TaskId":"0","StartDt":"' . $dateexe . '"' . $data2 . '}';
@@ -527,7 +527,7 @@ while ($reca = mysqli_fetch_array($resa)) {
         $body = json_encode($params);
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://10.1.49.250:8766/pengajuan");
+        curl_setopt($ch, CURLOPT_URL, "http://10.1.49.250:6766/pengajuan");
         curl_setopt($ch, CURLOPT_POST, TRUE);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
