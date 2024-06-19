@@ -3,13 +3,6 @@ include "config_api.php";
 include "../../sysconf/global_func.php";
 include "../../sysconf/db_config.php";
 
-// $idName              = $_GET['idName']; //UPDATE_FROM_CRM 
-// $idName              = "UPDATE_FROM_CRM"; //UPDATE_FROM_CRM 
-// $agrmntid              = $_GET['agrmntid']; //POL000000005
-// $distributedDate     = $_GET['distributedDate']; //2021-04-23 04:10:36
-// $no_pengajuan        = $_GET['no_pengajuan']; //TUP69020220000002 
-// Sanitasi dan validasi untuk 'idName'
-
 $idName = filter_input(INPUT_GET, 'idName', FILTER_SANITIZE_STRING);
 if (!$idName) {
         $idName = "";
@@ -33,7 +26,7 @@ if ($no_pengajuan != "") {
 }
 $condb = connectDB();
 //API URL
-$url = $url_api_fin . '/api/Pengajuan/InsertUpdateFromCRMRO'; //echo "string $url";
+$url = $url_api_fin . '/api/Pengajuan/InsertUpdateFromCRMRO';
 
 $dateexe = DATE("Y-m-d H:i:s");
 
