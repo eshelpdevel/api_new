@@ -14,10 +14,8 @@ if (file_exists($path)) {
         include $path;
 }
 
-$idName = filter_input(INPUT_GET, 'idName', FILTER_SANITIZE_STRING);
-if (!$idName) {
-        $idName = "";
-}
+$idName = "UPDATE_FROM_CRM";
+
 $agrmntid = filter_input(INPUT_GET, 'agrmntid', FILTER_SANITIZE_STRING);
 if (!$agrmntid) {
         $agrmntid = "";
