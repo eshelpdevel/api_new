@@ -23,7 +23,7 @@ if (!$agrmntid) {
         $agrmntid = "";
 }
 $distributedDate = filter_input(INPUT_GET, 'distributedDate', FILTER_SANITIZE_STRING);
-if (!$distributedDate) {
+if ($distributedDate === NULL) {
         $distributedDate = "";
 }
 $no_pengajuan = filter_input(INPUT_GET, 'no_pengajuan', FILTER_SANITIZE_STRING);
@@ -51,7 +51,7 @@ $result2 = "";
 $sqla = " SELECT * FROM cc_ts_penawaran a WHERE a.back_flag IN (0, 3) AND a.assign_to > '0' AND a.total_course < 5 ";
 //task_id='$taskId'
 $resa = mysqli_query($condb, $sqla);
-while ($reca = mysqli_fetch_array($resa)) {
+while (($reca = mysqli_fetch_array($resa)) === TRUE) {
         @extract($reca, EXTR_OVERWRITE);
 
         $sql99 = " UPDATE cc_ts_penawaran SET back_flag = '99' WHERE id = '" . $id . "' ";
@@ -78,12 +78,12 @@ while ($reca = mysqli_fetch_array($resa)) {
         $otr_price    = str_replace(".00", "", $otr_price);
         $emp_position = "TELESALES";
 
-        $path = '../../public/konfirm/cust_photo/'.$cust_photo;
+        $path = '../../public/konfirm/cust_photo/' . $cust_photo;
         $type = end(explode('.', $path));
         $data = file_get_contents($path);
         $cust_photo = base64_encode($data);
 
-        $path = '../../public/konfirm/id_photo/'.$id_photo;
+        $path = '../../public/konfirm/id_photo/' . $id_photo;
         $type = end(explode('.', $path));
         $data = file_get_contents($path);
         $id_photo = base64_encode($data);
