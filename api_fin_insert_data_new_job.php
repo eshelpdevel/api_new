@@ -1,7 +1,22 @@
 <?php
-include "config_api.php";
-include "../../sysconf/global_func.php";
-include "../../sysconf/db_config.php";
+// include "config_api.php";
+// include "../../sysconf/global_func.php";
+// include "../../sysconf/db_config.php";
+
+$path = "config_api.php";
+if (file_exists($path)) {
+        include $path;
+}
+
+$path = "../../sysconf/global_func.php";
+if (file_exists($path)) {
+        include $path;
+}
+
+$path = "../../sysconf/db_config.php";
+if (file_exists($path)) {
+        include $path;
+}
 
 $idName = filter_input(INPUT_GET, 'idName', FILTER_SANITIZE_STRING);
 if (!$idName) {
@@ -68,12 +83,12 @@ while ($reca = mysqli_fetch_array($resa)) {
         $emp_position = "TELESALES";
 
         $path = '../../public/konfirm/cust_photo/' . $cust_photo;
-        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $type = end(explode('.', $path));
         $data = file_get_contents($path);
         $cust_photo = base64_encode($data);
 
         $path = '../../public/konfirm/id_photo/' . $id_photo;
-        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $type = end(explode('.', $path));
         $data = file_get_contents($path);
         $id_photo = base64_encode($data);
 
