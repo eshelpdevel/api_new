@@ -1,8 +1,4 @@
 <?php
-// include "config_api.php";
-// include "../../sysconf/global_func.php";
-// include "../../sysconf/db_config.php";
-
 $path = "config_api.php";
 if (file_exists($path)) {
         include $path;
