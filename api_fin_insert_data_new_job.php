@@ -25,6 +25,7 @@ $distributedDate = filter_input(INPUT_GET, 'distributedDate', FILTER_SANITIZE_ST
 if ($distributedDate === NULL) {
         $distributedDate = "";
 }
+
 $no_pengajuan = filter_input(INPUT_GET, 'no_pengajuan', FILTER_SANITIZE_STRING);
 if (!$no_pengajuan) {
         $no_pengajuan = "";
@@ -50,8 +51,11 @@ $result2 = "";
 $sqla = " SELECT * FROM cc_ts_penawaran a WHERE a.back_flag IN (0, 3) AND a.assign_to > '0' AND a.total_course < 5 ";
 //task_id='$taskId'
 $resa = mysqli_query($condb, $sqla);
-while (($reca = mysqli_fetch_array($resa)) === TRUE) {
+while (($reca = mysqli_fetch_assoc($resa)) === TRUE) {
         @extract($reca, EXTR_OVERWRITE);
+        $id = $reca['id'];
+        $task_id = $reca['task_id'];
+        $assign_to = $reca['assign_to'];
 
         $sql99 = " UPDATE cc_ts_penawaran SET back_flag = '99' WHERE id = '" . $id . "' ";
         mysqli_query($condb, $sql99);
@@ -66,7 +70,7 @@ while (($reca = mysqli_fetch_array($resa)) === TRUE) {
 
         $sqlcs = "SELECT a.agent_name FROM cc_agent_profile a WHERE a.id='$assign_to' ";
         $rescs = mysqli_query($condb, $sqlcs);
-        if ($reccs = mysqli_fetch_array($rescs)) {
+        if ($reccs = mysqli_fetch_assoc($rescs)) {
                 $agent_name         = $reccs['agent_name'];
         }
 
@@ -79,8 +83,15 @@ while (($reca = mysqli_fetch_array($resa)) === TRUE) {
 
         $path = '../../public/konfirm/cust_photo/' . $cust_photo;
         $type = end(explode('.', $path));
-        $data = file_get_contents($path);
-        $cust_photo = base64_encode($data);
+        $path = '../../public/konfirm/cust_photo/' . $cust_photo;
+        $handle = fopen($path, "r");
+        if ($handle) {
+                $data = fread($handle, filesize($path));
+                fclose($handle);
+                $cust_photo = base64_encode($data);
+        } else {
+                $cust_photo = '';
+        }
 
         $path = '../../public/konfirm/id_photo/' . $id_photo;
         $type = end(explode('.', $path));
