@@ -32,7 +32,7 @@ if (!$no_pengajuan) {
 }
 
 $whr_sql = " AGRMNT_ID='$agrmntid' ";
-if ($no_pengajuan != "") {
+if ($no_pengajuan !== "") {
         $whr_sql = " no_pengajuan='$no_pengajuan' ";
 }
 $condb = connectDB();
@@ -57,7 +57,7 @@ while ($reca = mysqli_fetch_array($resa)) {
         $sql99 = " UPDATE cc_ts_penawaran SET back_flag = '99' WHERE id = '" . $id . "' ";
         mysqli_query($condb, $sql99);
 
-        if ($no_pengajuan != "") {
+        if ($no_pengajuan !== "") {
                 $taskId = $task_id;
         }
         $url = $url_api_fin . '/api/Pengajuan/InsertUpdateFromCRMRO';
@@ -100,409 +100,409 @@ while ($reca = mysqli_fetch_array($resa)) {
 
         $data2 = "";
 
-        if ($distributed_date != '' && $distributed_date != "0000-00-00 00:00:00") {
+        if ($distributed_date !== '' && $distributed_date !== "0000-00-00 00:00:00") {
                 $data2 .= ',"DistributedDate":"' . $distributed_date . '"';
         } else {
                 $data2 .= ',"DistributedDate":"' . $assign_time . '"';
         }
-        if ($region_code != '') {
+        if ($region_code !== '') {
                 $data2 .= ',"OfficeRegionCode":"' . $region_code . '"';
         }
-        if ($region_name != '') {
+        if ($region_name !== '') {
                 $data2 .= ',"OfficeRegionName":"' . $region_name . '"';
         }
-        if ($cabang_code != '') {
+        if ($cabang_code !== '') {
                 $data2 .= ',"OfficeCode":"' . $cabang_code . '"';
         }
-        if ($cabang_name != '') {
+        if ($cabang_name !== '') {
                 $data2 .= ',"OfficeName":"' . $cabang_name . '"';
         }
-        if ($product_offering_code != '') {
+        if ($product_offering_code !== '') {
                 $data2 .= ',"ProdOfferingCode":"' . $product_offering_code . '"';
         }
-        if ($customer_id_ro != '') {
+        if ($customer_id_ro !== '') {
                 $data2 .= ',"CustNo":"' . $customer_id_ro . '"';
         }
-        if ($customer_name != '') {
+        if ($customer_name !== '') {
                 $data2 .= ',"CustName":"' . $customer_name . '"';
         }
-        if ($nik_ktp != '') {
+        if ($nik_ktp !== '') {
                 $data2 .= ',"IdNo":"' . $nik_ktp . '"';
         }
-        if ($religion != '') {
+        if ($religion !== '') {
                 $data2 .= ',"Religion":"' . $religion . '"';
         }
-        if ($tempat_lahir != '') {
+        if ($tempat_lahir !== '') {
                 $data2 .= ',"BirthPlace":"' . $tempat_lahir . '"';
         }
-        if ($tanggal_lahir != '' && $tanggal_lahir != "0000-00-00 00:00:00") {
+        if ($tanggal_lahir !== '' && $tanggal_lahir !== "0000-00-00 00:00:00") {
                 $data2 .= ',"BirthDate":"' . $tanggal_lahir . '"';
         }
-        if ($nama_pasangan != '') {
+        if ($nama_pasangan !== '') {
                 $data2 .= ',"SpouseName":"' . $nama_pasangan . '"';
         }
-        if ($tanggal_lahir_pasangan != '' && $tanggal_lahir_pasangan != "0000-00-00 00:00:00") {
+        if ($tanggal_lahir_pasangan !== '' && $tanggal_lahir_pasangan !== "0000-00-00 00:00:00") {
                 $data2 .= ',"SpouseBirthDate":"' . $tanggal_lahir_pasangan . '"';
         }
-        if ($last_followup_date != '' && $last_followup_date != "0000-00-00 00:00:00") {
+        if ($last_followup_date !== '' && $last_followup_date !== "0000-00-00 00:00:00") {
                 $data2 .= ',"InputDt":"' . $last_followup_date . '"';
         }
-        if ($waktu_survey != '' && $waktu_survey != "0000-00-00 00:00:00") {
+        if ($waktu_survey !== '' && $waktu_survey !== "0000-00-00 00:00:00") {
                 $data2 .= ',"SurveyDt":"' . $waktu_survey . '"';
         }
-        if ($visit_dt != '' && $visit_dt != "0000-00-00 00:00:00") {
+        if ($visit_dt !== '' && $visit_dt !== "0000-00-00 00:00:00") {
                 $data2 .= ',"VisitDt":"' . $visit_dt . '"';
         }
-        if ($spouse_id_photo != '') {
+        if ($spouse_id_photo !== '') {
                 $data2 .= ',"SpouseIdPhoto":"' . $spouse_id_photo . '"';
         }
-        if ($legal_alamat != '') {
+        if ($legal_alamat !== '') {
                 $data2 .= ',"LegalAddr":"' . $legal_alamat . '"';
         }
-        if ($legal_city != '') {
+        if ($legal_city !== '') {
                 $data2 .= ',"LegalCity":"' . $legal_city . '"';
         }
-        if ($legal_kecamatan != '') {
+        if ($legal_kecamatan !== '') {
                 $data2 .= ',"LegalSubDistrict":"' . $legal_kecamatan . '"';
         }
-        if ($legal_kelurahan != '') {
+        if ($legal_kelurahan !== '') {
                 $data2 .= ',"LegalVillage":"' . $legal_kelurahan . '"';
         }
-        if ($legal_provinsi != '') {
+        if ($legal_provinsi !== '') {
                 $data2 .= ',"LegalProvince":"' . $legal_provinsi . '"';
         }
-        if ($legal_kabupaten != '') {
+        if ($legal_kabupaten !== '') {
                 $data2 .= ',"LegalDistrict":"' . $legal_kabupaten . '"';
         }
-        if ($legal_rt != '') {
+        if ($legal_rt !== '') {
                 $data2 .= ',"LegalRt":"' . $legal_rt . '"';
         }
-        if ($legal_rw != '') {
+        if ($legal_rw !== '') {
                 $data2 .= ',"LegalRw":"' . $legal_rw . '"';
         }
-        if ($legal_kodepos != '') {
+        if ($legal_kodepos !== '') {
                 $data2 .= ',"LegalZipcode":"' . $legal_kodepos . '"';
         }
-        if ($legal_sub_kodepos != '') {
+        if ($legal_sub_kodepos !== '') {
                 $data2 .= ',"LegalSubZipcode":"' . $legal_sub_kodepos . '"';
         }
-        if ($survey_alamat != '') {
+        if ($survey_alamat !== '') {
                 $data2 .= ',"SurveyAddr":"' . $survey_alamat . '"';
         }
-        if ($survey_rt != '') {
+        if ($survey_rt !== '') {
                 $data2 .= ',"SurveyRt":"' . $survey_rt . '"';
         }
-        if ($survey_rw != '') {
+        if ($survey_rw !== '') {
                 $data2 .= ',"SurveyRw":"' . $survey_rw . '"';
         }
-        if ($survey_provinsi != '') {
+        if ($survey_provinsi !== '') {
                 $data2 .= ',"SurveyProvince":"' . $survey_provinsi . '"';
         }
-        if ($survey_city != '') {
+        if ($survey_city !== '') {
                 $data2 .= ',"SurveyCity":"' . $survey_city . '"';
         }
-        if ($survey_kecamatan != '') {
+        if ($survey_kecamatan !== '') {
                 $data2 .= ',"SurveySubDistrict":"' . $survey_kecamatan . '"';
         }
-        if ($survey_kelurahan != '') {
+        if ($survey_kelurahan !== '') {
                 $data2 .= ',"SurveyVillage":"' . $survey_kelurahan . '"';
         }
-        if ($survey_kodepos != '') {
+        if ($survey_kodepos !== '') {
                 $data2 .= ',"SurveyZipCode":"' . $survey_kodepos . '"';
         }
-        if ($survey_sub_kodepos != '') {
+        if ($survey_sub_kodepos !== '') {
                 $data2 .= ',"SurveySubZipcode":"' . $survey_sub_kodepos . '"';
         }
-        if ($survey_kabupaten != '') {
+        if ($survey_kabupaten !== '') {
                 $data2 .= ',"SurveyDistrict":"' . $survey_kabupaten . '"';
         }
-        if ($SurveySubDistrict != '') {
+        if ($SurveySubDistrict !== '') {
                 $data2 .= ',"SurveySubDistrict":"' . $SurveySubDistrict . '"';
         }
-        if ($mobile_1 != '') {
+        if ($mobile_1 !== '') {
                 $data2 .= ',"MobilePhoneNo1":"' . $mobile_1 . '"';
         }
-        if ($mobile_2 != '') {
+        if ($mobile_2 !== '') {
                 $data2 .= ',"MobilePhoneNo2":"' . $mobile_2 . '"';
         }
-        if ($phone_1 != '') {
+        if ($phone_1 !== '') {
                 $data2 .= ',"Phone1":"' . $phone_1 . '"';
         }
-        if ($phone_2 != '') {
+        if ($phone_2 !== '') {
                 $data2 .= ',"Phone2":"' . $phone_2 . '"';
         }
-        if ($job_phone_1 != '') {
+        if ($job_phone_1 !== '') {
                 $data2 .= ',"JobPhone1":"' . $job_phone_1 . '"';
         }
-        if ($job_phone_2 != '') {
+        if ($job_phone_2 !== '') {
                 $data2 .= ',"JobPhone2":"' . $job_phone_2 . '"';
         }
-        if ($profession_name != '') {
+        if ($profession_name !== '') {
                 $data2 .= ',"ProfessionName":"' . $profession_name . '"';
         }
-        if ($profession_cat_name != '') {
+        if ($profession_cat_name !== '') {
                 $data2 .= ',"ProfessionCategoryName":"' . $profession_cat_name . '"';
         }
-        if ($job_position != '') {
+        if ($job_position !== '') {
                 $data2 .= ',"JobPosition":"' . $job_position . '"';
         }
-        if ($industry_type_name != '') {
+        if ($industry_type_name !== '') {
                 $data2 .= ',"IndustryTypeName":"' . $industry_type_name . '"';
         }
-        if ($monthly_income != '') {
+        if ($monthly_income !== '') {
                 if ($monthly_income == '0') {
                         $monthly_income = null;
                 }
                 $data2 .= ',"MonthlyIncome":"' . $monthly_income . '"';
         }
-        if ($monthly_expense != '') {
+        if ($monthly_expense !== '') {
                 $data2 .= ',"MonthlyExpense":"' . $monthly_expense . '"';
         }
-        if ($plafond != '') {
+        if ($plafond !== '') {
                 $data2 .= ',"Plafon":"' . $plafond . '"';
         }
-        if ($oth_biz_name != '') {
+        if ($oth_biz_name !== '') {
                 $data2 .= ',"OtherBizName":"' . $oth_biz_name . '"';
         }
-        if ($customer_rating != '') {
+        if ($customer_rating !== '') {
                 $data2 .= ',"CustRating":"' . $customer_rating . '"';
         }
         if ($lob == "MGJMTRKON" || $lob == "MGJMBLSYR" || $lob == "MGJMTRSYR" || $lob == "MGJMBLKON" || $lob == "FASDANMBL" || $lob == "SLBINV" || $lob == "FASDANMTR" || $lob == "SLBMBL") {
                 $suppl_name = "SUPPLIER";
                 $suppl_code = "DUMMY";
         }
-        if ($suppl_name != '') {
+        if ($suppl_name !== '') {
                 $data2 .= ',"SupplBranchName":"' . $suppl_name . '"';
         }
-        if ($suppl_code != '') {
+        if ($suppl_code !== '') {
                 $data2 .= ',"SupplBranchCode":"' . $suppl_code . '"';
         }
-        if ($no_mesin != '') {
+        if ($no_mesin !== '') {
                 $data2 .= ',"MachineNo":"' . $no_mesin . '"';
         }
-        if ($no_rangka != '') {
+        if ($no_rangka !== '') {
                 $data2 .= ',"ChassisNo":"' . $no_rangka . '"';
         }
-        if ($asset_desc != '') {
+        if ($asset_desc !== '') {
                 $data2 .= ',"AssetDescription":"' . $asset_desc . '"';
         }
-        if ($assets_name != '') {
+        if ($assets_name !== '') {
                 $data2 .= ',"AssetName":"' . $assets_name . '"';
         }
-        if ($otr_price != '') {
+        if ($otr_price !== '') {
                 $data2 .= ',"OtrPriceAmt":"' . $otr_price . '"';
         }
-        if ($item_year != '') {
+        if ($item_year !== '') {
                 $data2 .= ',"ManufacturingYear":"' . $item_year . '"';
         }
-        if ($ownership != '') {
+        if ($ownership !== '') {
                 $data2 .= ',"OwnerRelationship":"' . $ownership . '"';
         }
-        if ($agrmnt_rating != '') {
+        if ($agrmnt_rating !== '') {
                 $data2 .= ',"AgrmntRating":"' . $agrmnt_rating . '"';
         }
-        if ($contract_stat != '') {
+        if ($contract_stat !== '') {
                 $data2 .= ',"ContractStat":"' . $contract_stat . '"';
         }
-        if ($num_of_dependents != '') {
+        if ($num_of_dependents !== '') {
                 $data2 .= ',"NextInstNum":"' . $num_of_dependents . '"';
         }
-        if ($sisa_tenor != '' && $sisa_tenor != 0) {
+        if ($sisa_tenor !== '' && $sisa_tenor !== 0) {
                 $data2 .= ',"OsTenor":"' . $sisa_tenor . '"';
         }
-        if ($tenor != '') {
+        if ($tenor !== '') {
                 $data2 .= ',"Tenor":"' . $tenor . '"';
         }
-        if ($release_date_bpkb != '' && $release_date_bpkb != "0000-00-00 00:00:00") {
+        if ($release_date_bpkb !== '' && $release_date_bpkb !== "0000-00-00 00:00:00") {
                 $data2 .= ',"BpkbReleaseDt":"' . $release_date_bpkb . '"';
         }
-        if ($max_past_due_date != '') {
+        if ($max_past_due_date !== '') {
                 $data2 .= ',"MaxPastDueDt":"' . $max_past_due_date . '"';
         }
-        if ($maturity_date != '' && $maturity_date != "0000-00-00 00:00:00") {
+        if ($maturity_date !== '' && $maturity_date !== "0000-00-00 00:00:00") {
                 $data2 .= ',"MaturityDt":"' . $maturity_date . '"';
         }
-        if ($product_cat != '') {
+        if ($product_cat !== '') {
                 $data2 .= ',"ProdCategory":"' . $product_cat . '"';
         }
-        if ($jenis_task != '') {
+        if ($jenis_task !== '') {
                 $data2 .= ',"TaskType":"' . $jenis_task . '"';
         }
-        if ($soa != '') {
+        if ($soa !== '') {
                 $data2 .= ',"SOA":"' . $soa . '"';
         }
-        if ($down_payment != '') {
+        if ($down_payment !== '') {
                 $data2 .= ',"DownPayment":"' . $down_payment . '"';
         }
-        if ($ltv != '') {
+        if ($ltv !== '') {
                 $data2 .= ',"Ltv":"' . $ltv . '"';
         }
-        if ($answer_call != '') {
+        if ($answer_call !== '') {
                 $data2 .= ',"AnswerCall":"' . $answer_call . '"';
         }
-        if ($prospect_stat2 != '') {
+        if ($prospect_stat2 !== '') {
                 $data2 .= ',"ProspectStat":"' . $prospect_stat2 . '"';
         }
-        if ($reason_not_prospect != '') {
+        if ($reason_not_prospect !== '') {
                 $data2 .= ',"ReasonNotProspect":"' . $reason_not_prospect . '"';
         }
-        if ($notes != '') {
+        if ($notes !== '') {
                 $data2 .= ',"Note":"' . $notes . '"';
         }
-        if ($started_date != '' && $started_date != "0000-00-00 00:00:00") {
+        if ($started_date !== '' && $started_date !== "0000-00-00 00:00:00") {
                 $data2 .= ',"StartDt":"' . $started_date . '"';
         }
-        if ($emp_position != '') {
+        if ($emp_position !== '') {
                 $data2 .= ',"EmpPosition":"' . $emp_position . '"';
         }
-        if ($ia_app != '') {
+        if ($ia_app !== '') {
                 $data2 .= ',"IaApp":"' . $ia_app . '"';
         }
-        if ($cust_photo != '') {
+        if ($cust_photo !== '') {
                 $data2 .= ',"CustPhoto":"' . $cust_photo . '"';
         }
-        if ($id_photo != '') {
+        if ($id_photo !== '') {
                 $data2 .= ',"IdPhoto":"' . $id_photo . '"';
         }
-        if ($f_card_photo != '') {
+        if ($f_card_photo !== '') {
                 $data2 .= ',"FCardPhoto":"' . $f_card_photo . '"';
         }
-        if ($priority_level != '') {
+        if ($priority_level !== '') {
                 $data2 .= ',"PriorityLvl":"' . $priority_level . '"';
         }
-        if ($dukcapil_stat != '') {
+        if ($dukcapil_stat !== '') {
                 $data2 .= ',"DukcapilStat":"' . $dukcapil_stat . '"';
         }
-        if ($agent_name != '') {
+        if ($agent_name !== '') {
                 $data2 .= ',"FieldPersonName":"' . $agent_name . '"';
         }
-        if ($referantor_code != '') {
+        if ($referantor_code !== '') {
                 $data2 .= ',"ReferantorCode":"' . $referantor_code . '"';
         }
-        if ($referantor_name != '') {
+        if ($referantor_name !== '') {
                 $data2 .= ',"ReferantorName":"' . $referantor_name . '"';
         }
-        if ($pos_dealer != '') {
+        if ($pos_dealer !== '') {
                 $data2 .= ',"PosDealer":"' . $pos_dealer . '"';
         }
-        if ($nama_ibukandung != '') {
+        if ($nama_ibukandung !== '') {
                 $data2 .= ',"MotherName":"' . $nama_ibukandung . '"';
         }
-        if ($kepemilikan_rumah != '') {
+        if ($kepemilikan_rumah !== '') {
                 $data2 .= ',"HomeStat":"' . $kepemilikan_rumah . '"';
         }
-        if ($monthly_instalment != '') {
+        if ($monthly_instalment !== '') {
                 $data2 .= ',"MonthlyInstallment":"' . $monthly_instalment . '"';
         }
-        if ($marital_status != '') {
+        if ($marital_status !== '') {
                 $data2 .= ',"MaritalStat":"' . $marital_status . '"';
         }
-        if ($education != '') {
+        if ($education !== '') {
                 $data2 .= ',"Education":"' . $education . '"';
         }
-        if ($length_of_domicile != '') {
+        if ($length_of_domicile !== '') {
                 $data2 .= ',"StayLength":"' . $length_of_domicile . '"';
         }
-        if ($length_of_work != '') {
+        if ($length_of_work !== '') {
                 $data2 .= ',"LengthOfWork":"' . $length_of_work . '"';
         }
-        if ($duplicate_result != '') {
+        if ($duplicate_result !== '') {
                 $data2 .= ',"IsDuplicate":"' . $duplicate_result . '"';
         }
-        if ($duplicate_ke != '') {
+        if ($duplicate_ke !== '') {
                 $data2 .= ',"DuplicateNum":"' . $duplicate_ke . '"';
         }
-        if ($asset_code != '') {
+        if ($asset_code !== '') {
                 $data2 .= ',"AssetCode":"' . $asset_code . '"';
         } else {
                 $data2 .= ',"AssetCode":"' . $item_type . '"';
         }
-        if ($due_date != '') {
+        if ($due_date !== '') {
                 $data2 .= ',"DueDt":"' . $due_date . '"';
         }
-        if ($os_installment_amt != '') {
+        if ($os_installment_amt !== '') {
                 $data2 .= ',"OsInstallmentAmt":"' . $os_installment_amt . '"';
         }
-        if ($status_call != '') {
+        if ($status_call !== '') {
                 $data2 .= ',"StatusCall":"' . $status_call . '"';
         }
-        if ($spouse_nik != '') {
+        if ($spouse_nik !== '') {
                 $data2 .= ',"SpouseNIK":"' . $spouse_nik . '"';
         }
-        if ($spouse_birth_place != '') {
+        if ($spouse_birth_place !== '') {
                 $data2 .= ',"SpouseBirthPlace":"' . $spouse_birth_place . '"';
         }
-        if ($guarantor_name != '') {
+        if ($guarantor_name !== '') {
                 $data2 .= ',"GuarantorName":"' . $guarantor_name . '"';
         }
-        if ($guarantor_nik != '') {
+        if ($guarantor_nik !== '') {
                 $data2 .= ',"GuarantorNIK":"' . $guarantor_nik . '"';
         }
-        if ($guarantor_phone != '') {
+        if ($guarantor_phone !== '') {
                 $data2 .= ',"GuarantorMobilePhoneNo":"' . $guarantor_phone . '"';
         }
-        if ($guarantor_address != '') {
+        if ($guarantor_address !== '') {
                 $data2 .= ',"GuarantorAddr":"' . $guarantor_address . '"';
         }
-        if ($guarantor_rt != '') {
+        if ($guarantor_rt !== '') {
                 $data2 .= ',"GuarantorRt":"' . $guarantor_rt . '"';
         }
-        if ($guarantor_rw != '') {
+        if ($guarantor_rw !== '') {
                 $data2 .= ',"GuarantorRw":"' . $guarantor_rw . '"';
         }
-        if ($guarantor_provinsi != '') {
+        if ($guarantor_provinsi !== '') {
                 $data2 .= ',"GuarantorProvince":"' . $guarantor_provinsi . '"';
         }
 
-        if ($guarantor_kabupaten != '') {
+        if ($guarantor_kabupaten !== '') {
                 $data2 .= ',"GuarantorCity":"' . $guarantor_kabupaten . '"';
         }
 
-        if ($guarantor_kecamatan != '') {
+        if ($guarantor_kecamatan !== '') {
                 $data2 .= ',"GuarantorKecamatan":"' . $guarantor_kecamatan . '"';
         }
 
-        if ($guarantor_kelurahan != '') {
+        if ($guarantor_kelurahan !== '') {
                 $data2 .= ',"GuarantorKelurahan":"' . $guarantor_kelurahan . '"';
         }
 
-        if ($guarantor_zipcode != '') {
+        if ($guarantor_zipcode !== '') {
                 $data2 .= ',"GuarantorZipcode":"' . $guarantor_zipcode . '"';
         }
 
-        if ($GuarantorSubZipcode != '') {
+        if ($GuarantorSubZipcode !== '') {
                 $data2 .= ',"GuarantorSubZipcode":"' . $GuarantorSubZipcode . '"';
         }
 
-        if ($GuarantorRelationship != '') {
+        if ($GuarantorRelationship !== '') {
                 $data2 .= ',"GuarantorRelationship":"' . $GuarantorRelationship . '"';
         }
 
-        if ($customer_model != '') {
+        if ($customer_model !== '') {
                 $data2 .= ',"CustModel":"' . $customer_model . '"';
         }
 
-        if ($notes_other_vehicle != '') {
+        if ($notes_other_vehicle !== '') {
                 $data2 .= ',"NotesOtherVehicle":"' . $notes_other_vehicle . '"';
         }
 
-        if ($notes_phone_alternative != '') {
+        if ($notes_phone_alternative !== '') {
                 $data2 .= ',"NotesMobilePhoneNo":"' . $notes_phone_alternative . '"';
         }
 
-        if ($agrmnt_no != '') {
+        if ($agrmnt_no !== '') {
                 $data2 .= ',"AgrmntNo":"' . $agrmnt_no . '"';
         }
 
-        if ($source_data != '') {
+        if ($source_data !== '') {
                 $data2 .= ',"SourceData":"' . $source_data . '"';
         }
 
-        if ($lob != '') {
+        if ($lob !== '') {
                 $data2 .= ',"Lob":"' . $lob . '"';
         }
         //new    
-        if ($is_pre_approval != '') {
+        if ($is_pre_approval !== '') {
                 $param_approv = 'PRE APPROVAL';
                 $data2 .= ',"IsPreApproval":"' . $is_pre_approval . '"';
         }
